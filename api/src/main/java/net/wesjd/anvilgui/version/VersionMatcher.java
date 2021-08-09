@@ -29,7 +29,7 @@ public class VersionMatcher {
             return (VersionWrapper) Class.forName(this.getClass().getPackage().getName() + ".Wrapper" + serverVersion).newInstance();
         } catch (IllegalAccessException | InstantiationException ex) {
             throw new RuntimeException(ex);
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             throw new RuntimeException("Your server version isn't supported in AnvilGUI!");
         }
     }
